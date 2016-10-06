@@ -7,12 +7,28 @@ ol{
 	list-style-type: lower-alpha;
 }
 
-input {
+input:not([type="radio"]) {
 	border:1px solid silver;
 	display:block;
 	padding:10px 30px;	
 	margin:0 auto 20px;
 }
+
+input[type="radio"]{
+	opacity:0;
+	position:absolute;
+	width:100%;
+}
+
+input[type="radio"] + label {
+	padding:10px 0;
+	width:100%;
+}
+
+input[type="radio"]:checked + label {
+	background-color:pink;
+}
+
 footer {
 	text-align:center;
 	padding:15px 0;
@@ -56,6 +72,11 @@ footer {
 	padding:10px 0;
 }
 
+.answers label {
+	padding:10px 0;
+	display:block;
+	width:100%;
+}
 @media (min-width:568px){
 	.container { 
 		width:450px;

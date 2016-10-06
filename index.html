@@ -16,7 +16,7 @@
 	<main>
 
 		<!--after initial start, hide the quiz-start-->
-		<form id="quiz-start">
+		<form id="quizStart">
 			<input type="Submit" name="submit" value="Start it up!">
 		</form>
 
@@ -27,10 +27,10 @@
 			<p class="currentQuestion">Where did Tommy work?</p>
 		
 			<ol class="answers">
-				<li>On the Docks</li>
-				<li>By the Locks</li>
-				<li>Over by the Sure Shot</li>
-				<li>McDowell's</li>
+				<li><input type="radio" name="answer" value="a"><label>On the Docks</label></li>
+				<li><input type="radio" name="answer" value="b"><label>By the Locks</label></li>
+				<li><input type="radio" name="answer" value="c"><label>Over by the Sure Shot</label></li>
+				<li><input type="radio" name="answer" value="d"><label>McDowell's</label></li>
 			</ol>
 
 		</section>
@@ -79,7 +79,7 @@
 			<h2>Your score is: <span class="correct"></span> correct out of <span class="totalQuestions">x</span></h2>
 			<p>Good job, maybe?</p>
 		
-		</section>
+		</section>	
 		<!-- end final screen -->
 
 	

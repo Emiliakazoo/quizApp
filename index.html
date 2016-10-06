@@ -15,11 +15,13 @@
 	</header>
 	<main>
 
+		<!--after initial start, hide the quiz-start-->
 		<form id="quiz-start">
 			<input type="Submit" name="submit" value="Start it up!">
 		</form>
 
 
+		<!-- the questions will show up here, one at a time -->
 		<section class="questions">
 		
 			<p class="currentQuestion">Where did Tommy work?</p>
@@ -32,8 +34,10 @@
 			</ol>
 
 		</section>
+		<!-- end question layout -->
 
 
+		<!-- after user chooses an option above, they will see the "correct" h2, or the "wrongAnswer" div revealing what the right answer was, plus the "next" button -->
 		<section class="rightOrWrong"><!--this block can be written out with javascript?-->
 
 			<h2>Correct!</h2>
@@ -46,8 +50,10 @@
 			<input type="button" name="Next" value="Next">
 
 		</section>
+		<!-- end feedback area -->
 
 
+		<!-- this piece will always be on the page, updating as the quiz goes on -->
 		<section class="status">
 
 			<p>You are on question <span class="questionNumber">x</span>  of <span class="totalQuestions">x</span>.</p>
@@ -64,13 +70,19 @@
 			</table>
 
 		</section>
+		<!-- end status area -->
 
+
+		<!-- this is the final screen that people will see.  I am shooting for a different message for different ranges of questions right -->
 		<section class="finalScore">
+
 			<h2>Your score is: <span class="correct"></span> correct out of <span class="totalQuestions">x</span></h2>
 			<p>Good job, maybe?</p>
-
+		
 		</section>
+		<!-- end final screen -->
 
+	
 	</main>
 
 
@@ -82,7 +94,6 @@
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<!-- <script src="js/jquery-3.1.0.min.js"></script> put this in so I could work offline on the bus -->
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

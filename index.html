@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="main.css">
+
+	<title>The Ultimate Livin' on a Prayer Quiz</title>
+</head>
+<body>
+<div class="container">
+	<header>
+		<h1>The Ultimate Livin' on a Prayer Quiz</h1>
+		<p>How much do you know about Tommy and his girl?</p>
+	</header>
+	<main>
+
+		<form id="quiz-start">
+			<input type="Submit" name="submit" value="Start it up!">
+		</form>
+
+
+		<section class="questions">
+		
+			<p class="currentQuestion">Where did Tommy work?</p>
+		
+			<ol class="answers">
+				<li>On the Docks</li>
+				<li>By the Locks</li>
+				<li>Over by the Sure Shot</li>
+				<li>McDowell's</li>
+			</ol>
+
+		</section>
+
+
+		<section class="rightOrWrong"><!--this block can be written out with javascript?-->
+
+			<h2>Correct!</h2>
+
+			<div class="wrongAnswer">
+				<h2>WRONG!</h2>
+				<p>The correct answer is <span class="rightAnswer">x</span>.</p>
+			</div>
+
+			<input type="button" name="Next" value="Next">
+
+		</section>
+
+
+		<section class="status">
+
+			<p>You are on question <span class="questionNumber">x</span>  of <span class="totalQuestions">x</span>.</p>
+
+			<table class="results">
+				<tr>
+					<th>#right</th>
+					<th>#wrong</th>
+				</tr>
+				<tr>
+					<td class="right">6</td>
+					<td class="wrong">2</td>
+				</tr>
+			</table>
+
+		</section>
+
+		<section class="finalScore">
+			<h2>Your score is: <span class="correct"></span> correct out of <span class="totalQuestions">x</span></h2>
+			<p>Good job, maybe?</p>
+
+		</section>
+
+	</main>
+
+
+	<footer>
+		&copy; Emiliafoo
+	</footer>
+
+</div>
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!-- <script src="js/jquery-3.1.0.min.js"></script> put this in so I could work offline on the bus -->
+<script type="text/javascript" src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+* {
+	box-sizing:border-box;
+	font-size:16px;
+}
+
+ol{
+	list-style-type: lower-alpha;
+}
+
+input {
+	border:1px solid silver;
+	display:block;
+	padding:10px 30px;	
+	margin:0 auto 20px;
+}
+footer {
+	text-align:center;
+	padding:15px 0;
+	background-color:#f2f2f2;
+}
+
+.container {
+	width:100%;
+	margin:0 auto;
+	padding:.5rem;
+	border:1px solid #f2f2f2;
+}
+
+.status {
+	clear:both;
+	margin-bottom:20px;
+	}
+
+.status p {
+	margin-top:0;
+}
+
+.results {
+	border:1px solid black;
+	width:100%;
+	text-align:center;
+}
+
+.results td {
+	border-top:1px solid silver;
+	padding:10px 5px 5px;
+	width:50%;
+}
+
+.right {
+	border-right:1px solid silver;
+}
+
+.finalScore {
+	text-align:center;
+	padding:10px 0;
+}
+
+@media (min-width:568px){
+	.container { 
+		width:450px;
+		margin-top:1rem;
+		padding:1rem;
+	}
+	.status {
+		display:flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.results {
+		width:auto;
+	}
+}

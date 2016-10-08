@@ -22,15 +22,15 @@
 
 
 		<!-- the questions will show up here, one at a time -->
-		<section class="questions">
+		<section class="questions" style="display:none;">
 		
 			<p class="currentQuestion">Where did Tommy work?</p>
 		
 			<ol class="answers">
-				<li><input type="radio" name="answer" value="a"><label>On the Docks</label></li>
-				<li><input type="radio" name="answer" value="b"><label>By the Locks</label></li>
-				<li><input type="radio" name="answer" value="c"><label>Over by the Sure Shot</label></li>
-				<li><input type="radio" name="answer" value="d"><label>McDowell's</label></li>
+				<li><input type="radio" name="answer" value="On the Docks"><label>On the Docks</label></li>
+				<li><input type="radio" name="answer" value="By the Locks"><label>By the Locks</label></li>
+				<li><input type="radio" name="answer" value="Over by the Sure Shot"><label>Over by the Sure Shot</label></li>
+				<li><input type="radio" name="answer" value="McDowell's"><label>McDowell's</label></li>
 			</ol>
 
 		</section>
@@ -40,14 +40,11 @@
 		<!-- after user chooses an option above, they will see the "correct" h2, or the "wrongAnswer" div revealing what the right answer was, plus the "next" button -->
 		<section class="rightOrWrong"><!--this block can be written out with javascript?-->
 
-			<h2>Correct!</h2>
-
-			<div class="wrongAnswer">
-				<h2>WRONG!</h2>
+			<div class="wrongAnswer" style="display:none;">
 				<p>The correct answer is <span class="rightAnswer">x</span>.</p>
 			</div>
 
-			<input type="button" name="Next" value="Next">
+			<input class="next" type="button" name="Next" value="Next" style="display:none;">
 
 		</section>
 		<!-- end feedback area -->

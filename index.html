@@ -24,14 +24,9 @@
 		<!-- the questions will show up here, one at a time -->
 		<section class="questions" style="display:none;">
 		
-			<p class="currentQuestion">Where did Tommy work?</p>
-		
-			<ol class="answers">
-				<li><input type="radio" name="answer" value="On the Docks"><label>On the Docks</label></li>
-				<li><input type="radio" name="answer" value="By the Locks"><label>By the Locks</label></li>
-				<li><input type="radio" name="answer" value="Over by the Sure Shot"><label>Over by the Sure Shot</label></li>
-				<li><input type="radio" name="answer" value="McDowell's"><label>McDowell's</label></li>
-			</ol>
+			<h3 class="currentQuestion"></h3>
+
+			<ul class="answers"></ul>
 
 		</section>
 		<!-- end question layout -->
@@ -39,10 +34,6 @@
 
 		<!-- after user chooses an option above, they will see the "correct" h2, or the "wrongAnswer" div revealing what the right answer was, plus the "next" button -->
 		<section class="rightOrWrong"><!--this block can be written out with javascript?-->
-
-			<div class="wrongAnswer" style="display:none;">
-				<p>The correct answer is <span class="rightAnswer">x</span>.</p>
-			</div>
 
 			<input class="next" type="button" name="Next" value="Next" style="display:none;">
 
@@ -53,7 +44,7 @@
 		<!-- this piece will always be on the page, updating as the quiz goes on -->
 		<section class="status">
 
-			<p>You are on question <span class="questionNumber">x</span>  of <span class="totalQuestions">x</span>.</p>
+			<p style="display:none">You are on question <span class="questionNumber"></span>  of <span class="totalQuestions"></span>.</p>
 
 			<table class="results">
 				<tr>
@@ -61,8 +52,8 @@
 					<th>#wrong</th>
 				</tr>
 				<tr>
-					<td class="right">6</td>
-					<td class="wrong">2</td>
+					<td class="right">0</td>
+					<td class="wrong">0</td>
 				</tr>
 			</table>
 
@@ -73,7 +64,7 @@
 		<!-- this is the final screen that people will see.  I am shooting for a different message for different ranges of questions right -->
 		<section class="finalScore">
 
-			<h2>Your score is: <span class="correct"></span> correct out of <span class="totalQuestions">x</span></h2>
+			<h2>Your score is: <span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
 			<p>Good job, maybe?</p>
 		
 		</section>	
@@ -90,7 +81,8 @@
 </div>
 
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script> -->
+<script type="text/javascript" src="jquery-3.1.0.min.js"></script>
 <script type="text/javascript" src="app.js"></script>
 </body>
 </html>

@@ -94,6 +94,7 @@ $(".playAgain").hide();
 next.hide();
 
 
+
 //-------------------------------------------------BEGIN new game function
 var newGame = function(){
 	$("h3").text(questions[0].question);
@@ -135,6 +136,7 @@ next.on("click", function() {
 
 //----------------------------------------------------BEGIN event listener to evaluate choice
 $("ul").on("click", "li", function() {
+
 	if($(this).index() == questions[counter - 1].correctAnswer){
     	$(".rightOrWrong").prepend("<h2>Correct!</h2>");
     	numRight += 1;
@@ -174,10 +176,14 @@ startQuiz.on("submit", function(e){
 
 //-----------------------------------------------------------BEGIN playAgain
 $(".playAgain").on("click", function(){
+	numRight = 0;
+	numWrong = 0;
+	counter = 0;
 	$(".rightOrWrong h2").empty();
 	$(".rightOrWrong p").empty();
 	$(".answers").empty().show();
-	counter = 0;
+	$(".right").text(numRight);
+	$(".wrong").text(numWrong);
 	$(".questionNumber").text(counter);
 	newGame();
 	$(this).hide();

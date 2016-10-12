@@ -22,7 +22,7 @@
 
 
 		<!-- the questions will show up here, one at a time -->
-		<section class="questions" style="display:none;">
+		<section class="questions" class="hidden">
 		
 			<h3 class="currentQuestion"></h3>
 
@@ -35,7 +35,7 @@
 		<!-- after user chooses an option above, they will see the "correct" h2, or the "wrongAnswer" div revealing what the right answer was, plus the "next" button -->
 		<section class="rightOrWrong"><!--this block can be written out with javascript?-->
 
-			<input class="next" type="button" name="Next" value="Next" style="display:none;">
+			<input class="next" type="button" name="Next" value="Next" class="hidden">
 
 		</section>
 		<!-- end feedback area -->
@@ -44,7 +44,7 @@
 		<!-- this piece will always be on the page, updating as the quiz goes on -->
 		<section class="status">
 
-			<p style="display:none">You are on question <span class="questionNumber"></span>  of <span class="totalQuestions"></span>.</p>
+			<p class="hidden">You are on question <span class="questionNumber"></span>  of <span class="totalQuestions"></span>.</p>
 
 			<table class="results">
 				<tr>
@@ -65,7 +65,7 @@
 		<section class="finalScore">
 
 			<h2>Your score is: <span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
-			<p>Good job, maybe?</p>
+			<input class="playAgain" type="button" value="Play again?">
 		
 		</section>	
 		<!-- end final screen -->

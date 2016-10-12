@@ -79,7 +79,7 @@ var questions = [
 ];
 
 
-//------------------------functions
+//------------------------Setting things up
 
 var startQuiz = $("form#quizStart");
 var showQuestions = $(".questions");
@@ -90,29 +90,32 @@ var counter = 0;
 var numRight = 0;
 var numWrong = 0;
 $(".totalQuestions").text(questions.length);
+$(".playAgain").hide();
+next.hide();
 
 
-$("h3").text(questions[0].question);
+//-------------------------------------------------BEGIN new game function
+var newGame = function(){
+	$("h3").text(questions[0].question);
 
-for(var i = 0; i < questions[0].answers.length; i+=1){
-        $(".answers").append("<li>" + questions[0].answers[i] + "</li>");
-}
-  counter += 1;
+	for(var i = 0; i < questions[0].answers.length; i+=1){
+	        $(".answers").append("<li>" + questions[0].answers[i] + "</li>");
+	}
+	counter += 1;
 
-startQuiz.on("submit", function(e){
-	e.preventDefault();
-	$(this).hide();
-	$(".questions").show();
+	showQuestions.show();
 	$(".status p").show();
+	$(".playAgain").hide();
 	questionNumber.text(counter);
-});
+}
+//--------------------------------------------------END new game
 
 
 
 //____________________________________________________BEGIN event lister to start app
 next.on("click", function() {
 	$("h3").empty();
-	$(".answers").empty();
+	$(".answers").empty().show();
 	$(".rightOrWrong h2").empty();
 	$(".rightOrWrong p").empty();
 	$("h3").text(questions[counter].question);
@@ -125,6 +128,8 @@ next.on("click", function() {
 	  questionNumber.text(counter);
 });
 //____________________________________________________END event lister to start app
+
+
 
 
 
@@ -141,11 +146,41 @@ $("ul").on("click", "li", function() {
     	numWrong += 1;
     	$(".wrong").text(numWrong);
 	}
-	next.show();
+    $(".answers").hide();
+    if(counter < 10) {
+		next.show();
+    }
+    else{
+    	$(".status p").hide();
+    	$(".playAgain").show();
+    }
 
 })
 //-----------------------------------------------------------END evaluate choice
 
-//-----------------------------------------------------------BEGIN compare
+
+
+
+//-----------------------------------------------------------START quiz
+startQuiz.on("submit", function(e){
+	e.preventDefault();
+	newGame();
+	$(this).hide();
+});
+//-----------------------------------------------------------END start quiz
+
+
+
+
+//-----------------------------------------------------------BEGIN playAgain
+$(".playAgain").on("click", function(){
+	$(".rightOrWrong h2").empty();
+	$(".rightOrWrong p").empty();
+	$(".answers").empty().show();
+	counter = 0;
+	$(".questionNumber").text(counter);
+	newGame();
+	$(this).hide();
+});
 
 })();

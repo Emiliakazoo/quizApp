@@ -78,6 +78,9 @@ footer {
 	display:block;
 	width:100%;
 }
+.hidden {
+	display:none;
+}
 @media (min-width:568px){
 	.container { 
 		width:450px;

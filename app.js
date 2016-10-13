@@ -90,6 +90,7 @@ var counter = 0;
 var numRight = 0;
 var numWrong = 0;
 $(".totalQuestions").text(questions.length);
+$(".finalScore .right").text(counter);
 $(".playAgain").hide();
 next.hide();
 
@@ -106,6 +107,7 @@ var newGame = function(){
 
 	showQuestions.show();
 	$(".status p").show();
+	$(".tagline").hide();
 	$(".playAgain").hide();
 	questionNumber.text(counter);
 }
@@ -144,7 +146,7 @@ $("ul").on("click", "li", function() {
     }
     else {
     	var nums = questions[counter - 1].correctAnswer;
-    	$(".rightOrWrong").prepend("<h2>Wrong!!</h2> <p>The correct answer is " + questions[counter-1].answers[nums] + ".</p>");
+    	$(".rightOrWrong").prepend("<h2>Wrong!!</h2> <p>The correct answer is '" + questions[counter-1].answers[nums] + "'.</p>");
     	numWrong += 1;
     	$(".wrong").text(numWrong);
 	}
@@ -155,6 +157,16 @@ $("ul").on("click", "li", function() {
     else{
     	$(".status p").hide();
     	$(".playAgain").show();
+    }
+
+    if(numRight >0 && numRight <= 3){
+    	$(".awesomenessLevel").text("Super-flat hair!");
+    }
+    else if (numRight > 3 & numRight <= 7) {
+    	$(".awesomenessLevel").text("Medium feathered hair!");
+    }
+    else {
+    	$(".awesomenessLevel").text("Skyscraper");
     }
 
 })

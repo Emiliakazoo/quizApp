@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" type="text/css" href="https://fonts.google.com/?selection.family=Righteous|Russo+One">
 	<meta charset="UTF-8">	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="main.css">
@@ -11,9 +12,9 @@
 <div class="container">
 	<header>
 		<h1>The Ultimate Livin' on a Prayer Quiz</h1>
-		<p>How much do you know about Tommy and his girl?</p>
 	</header>
 	<main>
+		<p class="tagline">How much do you know about Tommy and his girl?</p>
 
 		<!--after initial start, hide the quiz-start-->
 		<form id="quizStart">
@@ -64,7 +65,8 @@
 		<!-- this is the final screen that people will see.  I am shooting for a different message for different ranges of questions right -->
 		<section class="finalScore">
 
-			<h2>Your score is: <span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
+			<h2><span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
+			<p>Awesomeness level: <span class="awesomenessLevel"></span></p>
 			<input class="playAgain" type="button" value="Play again?">
 		
 		</section>	

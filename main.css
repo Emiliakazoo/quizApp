@@ -1,7 +1,9 @@
+@import url(https://fonts.google.com/?selection.family=Righteous|Russo+One);
+
 * {
 	box-sizing:border-box;
 	font-size:16px;
-	font-family: "Righteous", "Russo+One";
+	font-family: "Righteous", "Russo One";
 }
 body {
 	background-color:#4d4d4d;

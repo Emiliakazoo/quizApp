@@ -1,9 +1,7 @@
-@import url(https://fonts.google.com/?selection.family=Righteous|Russo+One);
-
 * {
 	box-sizing:border-box;
 	font-size:16px;
-	font-family: "Righteous", "Russo One";
+	font-family: "Pontano Sans", sans-serif;
 }
 body {
 	background-color:#4d4d4d;
@@ -12,7 +10,7 @@ body {
 
 header {
 	background-color: rgba(241, 25, 13, 0.65);
-    height: 60px;
+    height: 66px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -20,8 +18,10 @@ header {
     align-items: center;
 }
 
-ol{
-	list-style-type: lower-alpha;
+ul{
+	list-style-type:none;
+	text-align:center;	
+	padding-left:0;
 }
 
 input:not([type="radio"]) {
@@ -39,7 +39,7 @@ input:not([type="radio"]):hover, input:not([type="radio"]):active {
 footer {
 	text-align:center;
 	padding:15px 0;
-	background-color:#f2f2f2;
+	background-color:#3c2020;
 }
 
 p, h1, h3{
@@ -47,14 +47,25 @@ p, h1, h3{
 }
 
 h1{
-	font-size:18px;
+	font-family: "Almendra SC", serif;
+	font-size:20px;
+	letter-spacing: 1px;
+	text-align:center;
 }
 
 h3{
 	font-size:18px;
 	font-weight:normal;
+	color:gold;
 }
 
+.main {
+	position:relative;
+}
+
+.answers li {
+	padding:10px;
+}
 .container {
 	width:100%;
 	margin:0 auto;
@@ -86,6 +97,22 @@ h3{
 	border-right:1px solid silver;
 }
 
+.rightOrWrong h2 {
+	font-size:40px;
+	color:red;
+	text-align:center;
+}
+
+.rightOrWrong p {
+	text-align:center;
+}
+
+h2.correct{
+	font-size:30px;
+	color:lime;
+	font-style:italic;
+}
+
 .finalScore {
 	text-align:center;
 	padding:10px 0;
@@ -107,10 +134,8 @@ h3{
 	}
 	.status {
 		display:flex;
+		flex-direction:column;
 		justify-content: space-between;
 		align-items: flex-start;
-	}
-	.results {
-		width:auto;
 	}
 }

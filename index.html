@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<link href="https://fonts.googleapis.com/css?family=Almendra+SC|Pontano+Sans" rel="stylesheet">
 	<meta charset="UTF-8">	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="main.css">
@@ -44,7 +45,7 @@
 		<!-- this piece will always be on the page, updating as the quiz goes on -->
 		<section class="status">
 
-			<p class="hidden">You are on question <span class="questionNumber"></span>  of <span class="totalQuestions"></span>.</p>
+			<p class="hidden">Question <span class="questionNumber"></span>  of <span class="totalQuestions"></span>.</p>
 
 			<table class="results">
 				<tr>
@@ -65,7 +66,7 @@
 		<section class="finalScore">
 
 			<h2><span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
-			<p>Awesomeness level: <span class="awesomenessLevel"></span></p>
+			<p class="hidden">Awesomeness level: <span class="awesomenessLevel"></span></p>
 			<input class="playAgain" type="button" value="Play again?">
 		
 		</section>	
@@ -76,7 +77,7 @@
 
 
 	<footer>
-		&copy; Emiliafoo
+		&copy; <span class="date"></span>
 	</footer>
 
 </div>

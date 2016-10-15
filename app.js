@@ -86,12 +86,17 @@ var showQuestions = $(".questions");
 var showCorrectAnswer = $(".wrongAnswer");
 var questionNumber = $(".questionNumber");
 var next = $(".next");
+var d = new Date();
+var year = d.getFullYear();
 var counter = 0;
 var numRight = 0;
 var numWrong = 0;
 $(".totalQuestions").text(questions.length);
 $(".finalScore .right").text(counter);
 $(".playAgain").hide();
+$(".date").text(year);
+$(".finalScore h2").hide();
+$(".results").hide();
 next.hide();
 
 
@@ -109,6 +114,8 @@ var newGame = function(){
 	$(".status p").show();
 	$(".tagline").hide();
 	$(".playAgain").hide();
+	$(".finalScore h2").hide();
+	$(".finalScore p").hide();
 	questionNumber.text(counter);
 }
 //--------------------------------------------------END new game
@@ -140,7 +147,7 @@ next.on("click", function() {
 $("ul").on("click", "li", function() {
 
 	if($(this).index() == questions[counter - 1].correctAnswer){
-    	$(".rightOrWrong").prepend("<h2>Correct!</h2>");
+    	$(".rightOrWrong").prepend("<h2 class='correct'>Correct!</h2>");
     	numRight += 1;
     	$(".right").text(numRight);
     }
@@ -157,16 +164,18 @@ $("ul").on("click", "li", function() {
     else{
     	$(".status p").hide();
     	$(".playAgain").show();
+    	$(".finalScore h2").show();
+    	$(".finalScore p").show();
     }
 
     if(numRight >0 && numRight <= 3){
-    	$(".awesomenessLevel").text("Super-flat hair!");
+    	$(".awesomenessLevel").text("Super-flat hair. I can't even.");
     }
     else if (numRight > 3 & numRight <= 7) {
-    	$(".awesomenessLevel").text("Medium feathered hair!");
+    	$(".awesomenessLevel").text("Medium feathered hair");
     }
     else {
-    	$(".awesomenessLevel").text("Skyscraper");
+    	$(".awesomenessLevel").text("Skyscraper	hair!");
     }
 
 })
@@ -179,6 +188,7 @@ $("ul").on("click", "li", function() {
 startQuiz.on("submit", function(e){
 	e.preventDefault();
 	newGame();
+	$(".results").show();
 	$(this).hide();
 });
 //-----------------------------------------------------------END start quiz

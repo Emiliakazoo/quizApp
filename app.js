@@ -168,7 +168,7 @@ $("ul").on("click", "li", function() {
     	$(".finalScore p").show();
     }
 
-    if(numRight >0 && numRight <= 3){
+    if(numRight >= 0 && numRight <= 3){
     	$(".awesomenessLevel").text("Super-flat hair. I can't even.");
     }
     else if (numRight > 3 & numRight <= 7) {

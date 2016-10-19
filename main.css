@@ -24,7 +24,7 @@ ul{
 	padding-left:0;
 }
 
-input:not([type="radio"]) {
+input[type="submit"], input[type="button"] {
 	border:2px solid red;
 	display:block;
 	padding:10px 30px;	
@@ -32,7 +32,7 @@ input:not([type="radio"]) {
 	box-shadow:3px 3px 8px 0 #000;
 }
 
-input:not([type="radio"]):hover, input:not([type="radio"]):active {
+input[type="submit"]:active, input[type="button"]:active {
 	box-shadow:3px 3px 8px 0 inset;
 }
 
@@ -59,17 +59,29 @@ h3{
 	color:gold;
 }
 
-.main {
+main {
 	position:relative;
 }
 
 .answers li {
 	padding:10px;
+	margin-bottom:10px;
+	background-color: rgba(241, 25, 13, 0.44);	
+	cursor:pointer;
+}
+
+.answers li:hover {
+	box-shadow:0px 0px 5px #000;
+}
+
+.answers li:active {
+	background-color: rgba(241, 25, 13, 0.84);	
 }
 .container {
 	width:100%;
 	margin:0 auto;
 	border:1px solid #f2f2f2;
+	position:relative;
 }
 
 .status {
@@ -97,6 +109,15 @@ h3{
 	border-right:1px solid silver;
 }
 
+
+.rockinRight {
+	margin:10px auto 20px;
+	display:block;
+	-webkit-animation: glow 1s infinite; /* Safari 4+ */
+	-moz-animation:    glow 1s infinite; /* Fx 5+ */
+	-o-animation:      glow 1s infinite; /* Opera 12+ */
+	animation:         glow 1s infinite; /* IE 10+, Fx 29+ */
+}
 .rightOrWrong h2 {
 	font-size:40px;
 	color:red;
@@ -118,6 +139,32 @@ h2.correct{
 	padding:10px 0;
 }
 
+.awesomenessLevel {
+	position:absolute;
+	top:0;
+	width:93%;
+	margin:15px 0;
+	height:290px;
+	background-color:darkred;
+	display:flex;
+	align-items:center;
+	flex-direction:column;
+	padding:15px;
+	font-family: "Almendra SC", serif;
+    font-size: 30px;
+    letter-spacing: 1px;	
+}
+
+.awesomenessLevel span {
+	display:block;
+	padding:10px 0;
+}
+.awesomenessLevel span:first-child {}
+.awesomenessLevel span:nth-child(2){font-size:28px;}
+.awesomenessLevel span:nth-child(3){font-size:36px;}
+.awesomenessLevel span:nth-child(4){font-size:30px;}
+.awesomenessLevel span:nth-child(4).tiny {font-size:12px;}
+
 .answers label {
 	padding:10px 0;
 	display:block;
@@ -138,4 +185,27 @@ h2.correct{
 		justify-content: space-between;
 		align-items: flex-start;
 	}
+}
+
+/* animation */
+
+@-webkit-keyframes glow {
+	0% { box-shadow:0px 0px 5px gold; }
+	50% { box-shadow:0px 0px 25px gold; }
+	100% { box-shadow:0px 0px 5px gold; }
+}
+@-moz-keyframes glow {
+	0% { box-shadow:0px 0px 5px gold; }
+	50% { box-shadow:0px 0px 25px gold; }
+	100% { box-shadow:0px 0px 10px gold; }
+}
+@-o-keyframes glow {
+	0% { box-shadow:0px 0px 5px gold; }
+	50% { box-shadow:0px 0px 25px gold; }
+	100% { box-shadow:0px 0px 10px gold; }
+}
+@keyframes glow {
+	0% { box-shadow:0px 0px 5px gold; }
+	50% { box-shadow:0px 0px 25px gold; }
+	100% { box-shadow:0px 0px 10px gold; }
 }

@@ -80,62 +80,77 @@ var questions = [
 
 
 //------------------------Setting things up
-
-var startQuiz = $("form#quizStart");
-var showQuestions = $(".questions");
-var showCorrectAnswer = $(".wrongAnswer");
-var questionNumber = $(".questionNumber");
-var next = $(".next");
-var d = new Date();
-var year = d.getFullYear();
 var counter = 0;
 var numRight = 0;
 var numWrong = 0;
+var year = (new Date).getFullYear();
 $(".totalQuestions").text(questions.length);
-$(".finalScore .right").text(counter);
-$(".playAgain").hide();
-$(".date").text(year);
 $(".finalScore h2").hide();
+$(".next").hide();
+$(".playAgain").hide();
 $(".results").hide();
-next.hide();
+$(".awesomenessLevel").hide();
+$(".date").text(year);
+
+
+//--------------------------------------------------BEGIN populate question
+
+var populateQuestion = function() {
+	$("h3").empty().show();
+	$(".answers").empty().show();
+	$(".rightOrWrong").empty();
+	$(".results").show();
+	$("h3").text(questions[counter].question);
+
+	for(var i = 0; i < questions[counter].answers.length; i+=1){
+	    $(".answers").append("<li>" + questions[counter].answers[i] + "</li>");
+	}
+	  counter += 1;
+}
+
+//--------------------------------------------------END populate question
 
 
 
 //-------------------------------------------------BEGIN new game function
+
 var newGame = function(){
-	$("h3").text(questions[0].question);
-
-	for(var i = 0; i < questions[0].answers.length; i+=1){
-	        $(".answers").append("<li>" + questions[0].answers[i] + "</li>");
-	}
-	counter += 1;
-
-	showQuestions.show();
-	$(".status p").show();
-	$(".tagline").hide();
-	$(".playAgain").hide();
+	counter = 0;
+	numRight = 0;
+	numWrong = 0;
+	$(".right").empty();
+	$(".wrong").empty();
 	$(".finalScore h2").hide();
-	$(".finalScore p").hide();
-	questionNumber.text(counter);
+	populateQuestion();
 }
+
 //--------------------------------------------------END new game
 
 
+//--------------------------------------------------BEGIN Awesomeness Level calculate
+
+var howAwesome = function() {
+    if(numRight >= 0 && numRight <= 3){
+    	$(".awesomenessLevel").html("Awesomeness level: <span>Super</span> <span>flat</span> <span>hair.</span> <span class='tiny'>I can't even.</span>");
+    }
+    else if (numRight > 3 & numRight <= 7) {
+    	$(".awesomenessLevel").html("Awesomeness level:<span>Medium</span> <span>feathered</span> <span>hair.</span> <span>You're kind of awesome.</span>");
+    }
+    else {
+    	$(".awesomenessLevel").html("Awesomeness level: <span>Sky</span><span>Scraper</span> <span>hair!!</span><span>You're too cool.</span>");
+    }
+    $(".awesomenessLevel").show(200);
+}
+
+//--------------------------------------------------BEGIN Awesomeness Level calculate
+
 
 //____________________________________________________BEGIN event lister to start app
-next.on("click", function() {
-	$("h3").empty();
-	$(".answers").empty().show();
-	$(".rightOrWrong h2").empty();
-	$(".rightOrWrong p").empty();
-	$("h3").text(questions[counter].question);
-	$(this).hide();
 
-	for(var i = 0; i < questions[counter - 1].answers.length; i+=1){
-	        $(".answers").append("<li>" + questions[counter].answers[i] + "</li>");
-	}
-	  counter += 1;
-	  questionNumber.text(counter);
+$(".next").on("click", function() {
+	populateQuestion();
+	$(".rightOrWrong").empty();
+	$(this).hide();
 });
 //____________________________________________________END event lister to start app
 
@@ -146,7 +161,7 @@ next.on("click", function() {
 //----------------------------------------------------BEGIN event listener to evaluate choice
 $("ul").on("click", "li", function() {
 
-	if($(this).index() == questions[counter - 1].correctAnswer){
+    if($(this).index() == questions[counter - 1].correctAnswer){
     	$(".rightOrWrong").prepend("<h2 class='correct'>Correct!</h2>");
     	numRight += 1;
     	$(".right").text(numRight);
@@ -156,40 +171,27 @@ $("ul").on("click", "li", function() {
     	$(".rightOrWrong").prepend("<h2>Wrong!!</h2> <p>The correct answer is '" + questions[counter-1].answers[nums] + "'.</p>");
     	numWrong += 1;
     	$(".wrong").text(numWrong);
-	}
+    }
     $(".answers").hide();
-    if(counter < 10) {
-		next.show();
+    $(".finalScore h2").show();
+    if(counter < questions.length) {
+	    $(".next").show();
     }
-    else{
-    	$(".status p").hide();
+    if(counter == questions.length){
+    	howAwesome();
     	$(".playAgain").show();
-    	$(".finalScore h2").show();
-    	$(".finalScore p").show();
     }
-
-    if(numRight >= 0 && numRight <= 3){
-    	$(".awesomenessLevel").text("Super-flat hair. I can't even.");
-    }
-    else if (numRight > 3 & numRight <= 7) {
-    	$(".awesomenessLevel").text("Medium feathered hair");
-    }
-    else {
-    	$(".awesomenessLevel").text("Skyscraper	hair!");
-    }
-
-})
+});
 //-----------------------------------------------------------END evaluate choice
 
 
 
 
 //-----------------------------------------------------------START quiz
-startQuiz.on("submit", function(e){
+$("#quizStart").on("submit", function(e){
 	e.preventDefault();
-	newGame();
-	$(".results").show();
 	$(this).hide();
+	newGame();
 });
 //-----------------------------------------------------------END start quiz
 
@@ -198,17 +200,9 @@ startQuiz.on("submit", function(e){
 
 //-----------------------------------------------------------BEGIN playAgain
 $(".playAgain").on("click", function(){
-	numRight = 0;
-	numWrong = 0;
-	counter = 0;
-	$(".rightOrWrong h2").empty();
-	$(".rightOrWrong p").empty();
-	$(".answers").empty().show();
-	$(".right").text(numRight);
-	$(".wrong").text(numWrong);
-	$(".questionNumber").text(counter);
-	newGame();
 	$(this).hide();
+	$(".awesomenessLevel").hide();
+	newGame();
 });
 
 })();

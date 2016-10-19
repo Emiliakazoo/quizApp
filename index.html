@@ -34,12 +34,10 @@
 
 
 		<!-- after user chooses an option above, they will see the "correct" h2, or the "wrongAnswer" div revealing what the right answer was, plus the "next" button -->
-		<section class="rightOrWrong"><!--this block can be written out with javascript?-->
-
-			<input class="next" type="button" name="Next" value="Next" class="hidden">
-
+		<section class="rightOrWrong"><!--this block can be written out with javascript?-->		
 		</section>
-		<!-- end feedback area -->
+		<input class="next" type="button" name="Next" value="Next">
+<!-- end feedback area -->
 
 
 		<!-- this piece will always be on the page, updating as the quiz goes on -->
@@ -65,8 +63,7 @@
 		<!-- this is the final screen that people will see.  I am shooting for a different message for different ranges of questions right -->
 		<section class="finalScore">
 
-			<h2><span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
-			<p class="hidden">Awesomeness level: <span class="awesomenessLevel"></span></p>
+			<h2 class="message"><span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
 			<input class="playAgain" type="button" value="Play again?">
 		
 		</section>	
@@ -77,8 +74,14 @@
 
 
 	<footer>
-		&copy; <span class="date"></span>
+		&copy; <span><span class="date"></span> Emiliakazoo</span>
 	</footer>
+	
+	<div class="awesomenessLevel" >
+		<h2 class="message"><span class="right"></span> correct out of <span class="totalQuestions"></span></h2>
+			Awesomeness level: 
+			<span></span>
+		</div>
 
 </div>
 
